@@ -4,8 +4,8 @@
 #include <SPI.h>
 #include <MFRC522.h>
 
-#define RST_PIN D3
-#define SDA_PIN D4
+#define RST_PIN D1
+#define SDA_PIN D2
 
 String wifi_ssid = "Tolong Jangan Dipakai";
 String wifi_pass = "janganmaling";
@@ -32,9 +32,12 @@ void lcdPrint(String a, String b) {
 void setup() {
   Serial.begin(9600);
 
-  lcd.begin(16,2);
+  Wire.begin(2, 0);
   lcd.init();
   lcd.backlight();
+
+  lcdPrint("Inisialisasi", "perangkat");
+  delay(2000);
 
   SPI.begin();
   mfrc522.PCD_Init();
@@ -107,7 +110,7 @@ void loop() {
     delay(2000);
   }
   else {
-    lcdPrint("Kesalahan alat", "");
+    lcdPrint("Kesalahan perangkat", "");
     delay(2000);
   }
 
