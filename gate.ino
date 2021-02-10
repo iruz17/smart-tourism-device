@@ -7,10 +7,14 @@
 #define RST_PIN D1
 #define SDA_PIN D2
 
-String wifi_ssid = "Tolong Jangan Dipakai";
-String wifi_pass = "janganmaling";
+// Change this according to the WiFi SSID and password
+String wifi_ssid = "SSID";
+String wifi_pass = "password";
 
+// Change this according to the server address
 String server_address = "http://192.168.1.1:8080";
+
+// Change this according to the gate id
 String gate_id = "5ff98afe90384e440c3d6bec";
 
 LiquidCrystal_I2C lcd(0x3F, 16, 2);
@@ -73,9 +77,11 @@ void loop() {
 
     lcdPrint("Terhubung ke", "server");
     delay(2000);
+
+    lcdPrint("Silahkan tempel", "kartu");
+    delay(2000);
   }
 
-  lcdPrint("Silahkan tempel", "kartu");
   if (!mfrc522.PICC_IsNewCardPresent()) {
     return;
   }
@@ -100,7 +106,7 @@ void loop() {
   String api_address = server_address + "/api/device/visitation/";
   http.begin(api_address + gate_id + "/" + tag_id);
 
-  int http_rc = http.GET();
+  int http_rc = http.POST("");
   if (http_rc >= 0) {
     lcd.clear();
     lcd.setCursor(0, 0);
@@ -115,4 +121,7 @@ void loop() {
   }
 
   http.end();
+
+  lcdPrint("Silahkan tempel", "kartu");
+  delay(2000);
 }
