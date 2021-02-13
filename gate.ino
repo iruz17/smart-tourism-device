@@ -1,11 +1,11 @@
-#include <LiquidCrystal_I2C.h>
+#include <LiquidCrystal_PCF8574.h>
 #include <ESP8266WiFi.h>
 #include <ESP8266HTTPClient.h>
 #include <SPI.h>
 #include <MFRC522.h>
 
-#define RST_PIN D1
-#define SDA_PIN D2
+#define RST_PIN D3
+#define SDA_PIN D4
 
 // Change this according to the WiFi SSID and password
 String wifi_ssid = "SSID";
@@ -17,7 +17,7 @@ String server_address = "http://192.168.1.1:8080";
 // Change this according to the gate id
 String gate_id = "5ff98afe90384e440c3d6bec";
 
-LiquidCrystal_I2C lcd(0x3F, 16, 2);
+LiquidCrystal_PCF8574 lcd(0x3F);
 
 MFRC522 mfrc522(SDA_PIN, RST_PIN);
 
@@ -36,9 +36,7 @@ void lcdPrint(String a, String b) {
 void setup() {
   Serial.begin(9600);
 
-  Wire.begin(2, 0);
-  lcd.init();
-  lcd.backlight();
+  lcd.begin(16, 2);
 
   lcdPrint("Inisialisasi", "perangkat");
   delay(2000);
