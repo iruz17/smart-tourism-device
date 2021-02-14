@@ -1,10 +1,10 @@
 # Smart Tourism Device
 
-[Radio-frequency identification (RFID)](https://en.wikipedia.org/wiki/Radio-frequency_identification) based card scanner device using [NodeMCU](https://www.nodemcu.com/index_en.html) and [MFRC522](https://www.nxp.com/products/rfid-nfc/nfc-hf/nfc-readers/standard-performance-mifare-and-ntag-frontend:MFRC52202HN1) Module.
+[Radio-frequency identification (RFID)](https://en.wikipedia.org/wiki/Radio-frequency_identification) based card scanner device using [NodeMCU](https://www.nodemcu.com/index_en.html) and [MFRC522](https://www.nxp.com/products/rfid-nfc/nfc-hf/nfc-readers/standard-performance-mifare-and-ntag-frontend:MFRC52202HN1) module.
 This device uses MFRC522 module to scan the tag id of RFID based card and NodeMCU to communicate with the HTTP Server.
 This device also uses LCD 16x2 with I2C Module to shows information related to the device's current status.
 
-We created this project as part of the Smart Tourism project that consists of several parts like [database server](https://github.com/iruz17/project-telematika), [card scanner device](https://github.com/iruz17/smart-tourism-device), [administrator website](https://github.com/niaangellina/smart-tourism-web), and [location's direction app](https://github.com/threeal/smart-tourism-app).
+We created this project as part of the Smart Tourism project that consists of several parts like [database server](https://github.com/threeal/smart-tourism-server), [card scanner device](https://github.com/threeal/smart-tourism-device), [administrator website](https://github.com/threeal/smart-tourism-web), and [location's direction app](https://github.com/threeal/smart-tourism-app).
 Smart Tourism project is a system for smart tourism that improves the impression of tourism sites using an electronic card to enter and exit locations, a website that monitors and show statistic for each location, and AR app for visitors to show location's direction.
 This project is undertaken to fulfill the Telematics Projects course in the [Computer Engineering department](https://www.its.ac.id/study-at-its/faculties-and-departments/faculty-electrical-technology/computer-engineering/) of [Sepuluh Nopember Institute of Technology](https://www.its.ac.id/).
 
